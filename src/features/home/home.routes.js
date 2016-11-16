@@ -1,11 +1,14 @@
-routes.$inject = ['$stateProvider'];
+import HomeComponent from './home.component';
+import template from './home.tpl.html';
 
-export default function routes($stateProvider) {
+export function routing($urlRouterProvider, $stateProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
   $stateProvider
     .state('home', {
-      url: '/',
-      template: require('./home.html'),
-      controller: 'HomeController',
-      controllerAs: 'home'
+      url:       '/',
+      component: HomeComponent,
+      template:  template
     });
 }

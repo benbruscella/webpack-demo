@@ -1,14 +1,13 @@
-import './home.css';
-
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 
-import routing from './home.routes';
-import HomeController from './home.controller';
-import randomNames from '../../services/randomNames.service';
-import greeting    from '../../components/greeting.component';
+import { routing } from './home.routes.js';
 
-export default angular.module('app.home', [uirouter, randomNames, greeting])
-  .config(routing)
-  .controller('HomeController', HomeController)
-  .name;
+import HomeComponent from './home.component';
+import template from './home.tpl.html';
+
+export default angular
+    .module('main.app', [uirouter])
+    .config(routing)
+    .component('homeComponent', { controller: HomeComponent, template })
+    .name;
